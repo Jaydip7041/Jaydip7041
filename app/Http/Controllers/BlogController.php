@@ -66,12 +66,16 @@ class BlogController extends Controller
         ]);
 
         $data = $request->only(['name', 'surname', 'mno']);
+        // If there is a new image, handle the upload
         if ($request->hasFile('image')) {
+            // Store the new image and add to the data array
             $data['image'] = $request->file('image')->store('images', 'public');
         }
 
+        // Update the blog record with the validated data
         $blog->update($data);
 
+        // Redirect back to the blogs index with a success message
         return redirect()->route('blogs.index')->with('success', 'Blog updated successfully!');
     }
 

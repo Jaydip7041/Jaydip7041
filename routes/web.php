@@ -64,3 +64,8 @@ Route::get('blogs/trashed', [BlogController::class, 'trashed'])->name('blogs.tra
 Route::post('blogs/{id}/restore', [BlogController::class, 'restore'])->name('blogs.restore');
 Route::delete('blogs/{id}/force-delete', [BlogController::class, 'forceDelete'])->name('blogs.forceDelete');
 Route::get('blogs/{id}', [BlogController::class, 'show'])->name('blogs.show');
+// Route to display the edit form
+Route::get('blogs/{blog}/edit', [BlogController::class, 'edit'])->name('blogs.edit');
+
+// Route to handle the form submission and update the blog
+Route::put('blogs/{blog}', [BlogController::class, 'update'])->name('blogs.update');
