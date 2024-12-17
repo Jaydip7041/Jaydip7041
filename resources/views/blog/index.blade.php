@@ -3,11 +3,11 @@
 @section('content')
     <div class="container">
         <a href="{{ route('blogs.create') }}" class="btn btn-primary mb-3">Add Blog</a>
-        <form action="{{ route('blogs.search') }}" method="POST">
+        <form action="{{ route('blogs.search') }}" method="POST" class="d-flex">
             @csrf
-            <input type="text" name="search" placeholder="Search by Name or Surname" class="form-control mb-3">
+            <input type="text" name="search" placeholder="Search by Name or Surname" class="form-control w-50 me-2">
             <button type="submit" class="btn btn-secondary">Search</button>
-        </form>
+        </form><br>
         <table class="table table-bordered">
             <thead>
                 <tr>
